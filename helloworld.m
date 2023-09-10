@@ -44,33 +44,16 @@
 % <integer> ::= <digit>+
 % <digit> ::= 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
 % <letter> ::= a | b | c | ... | z | A | B | C | ... | 
-:- import_module parsing_utils.
-:- import_module pretty_printer.
 :- import_module list.
-
-:- type program ---> program(list(statement)).
-
-:- type statement --->
-      assignment(identifier, value) ;
-      function_call(identifier, list(value)).
-
-:- type value --->
-      integer(int) ;
-      identifier(string).
-
-:- type identifier == string.
+:- use_module yoox.
+:- use_module parsing_utils.
 
 
-
-:- pred parser(src::in, program::out, ps::in, ps::out) is semidet.
-parser(Src, Out, !PS):- 
-  fail_with_message("You suck", Src, Out, !PS).
-  
 
 main(!IO) :-               
   io.read_named_file_as_string("./counter.ux", ReadResult, !IO),
   ( if ReadResult = ok(Input) then
-      parse(Input, parser, Parsed),
+      parsing_utils.parse(Input, yoox.parse_program, Parsed),
       io.write_line(Parsed, !IO)
     else io.write_line("Uh oh", !IO)).
   

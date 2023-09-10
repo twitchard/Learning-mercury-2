@@ -1,3 +1,0 @@
-:- module helloworld.
-:- interface.
-:- type_representation(identifier, is_eqv_to(string)).
