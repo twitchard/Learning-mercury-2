@@ -1,0 +1,14 @@
+module(2, "html.m",
+	html,
+	{},
+	{builtin, list, private_builtin, string},
+	{},
+	{},
+	{},
+	{},
+	{},
+	{},
+	no_foreign_export,
+	no_main,
+	{}
+).

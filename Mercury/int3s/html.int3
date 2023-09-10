@@ -1,0 +1,10 @@
+:- module html.
+:- interface.
+:- type attribute.
+:- type html.
+:- type is_void
+	where	type_is_abstract_enum(1).
+:- type tag.
+:- type_representation(attribute, is_word_aligned_ptr).
+:- type_representation(is_void, du_repn(enum("yes", "no", [],  no_c_j_cs))).
+:- type_representation(tag, is_eqv_to(string)).

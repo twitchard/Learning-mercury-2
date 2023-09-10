@@ -1,0 +1,14 @@
+module(2, "cgi.m",
+	cgi,
+	{},
+	{builtin, io, private_builtin},
+	{int, maybe, string},
+	{},
+	{},
+	{},
+	{},
+	{},
+	no_foreign_export,
+	no_main,
+	{}
+).

@@ -1,0 +1,14 @@
+module(2, "helloworld.m",
+	helloworld,
+	{},
+	{builtin, io, private_builtin},
+	{list, parsing_utils, pretty_printer},
+	{},
+	{},
+	{},
+	{},
+	{},
+	no_foreign_export,
+	no_main,
+	{}
+).

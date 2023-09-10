@@ -1,0 +1,5 @@
+:- module cgi.
+:- interface.
+:- type request.
+:- type response.
+:- type_representation(request, is_word_aligned_ptr).

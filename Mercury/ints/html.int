@@ -1,0 +1,29 @@
+:- module html.
+:- interface.
+:- use_module list.
+:- use_module string.
+:- type attribute
+    --->    attribute(string, string).
+:- type html
+    --->    empty 
+    ;       text(string)
+    ;       element(html.tag, html.is_void, list.list(html.attribute), list.list(html.html))
+    ;       concat(list.list(html.html)).
+:- type is_void
+    --->    yes 
+    ;       no .
+:- type tag == string.
+:- func a(string, string) = html.html.
+:- func a(string, string, list.list(html.attribute)) = html.html.
+:- func button(string) = html.html.
+:- func button(string, list.list(html.attribute)) = html.html.
+:- func form(string, list.list(html.attribute), list.list(html.html)) = html.html.
+:- func h1(string) = html.html.
+:- func h1(string, list.list(html.attribute)) = html.html.
+:- func h2(string) = html.html.
+:- func h2(string, list.list(html.attribute)) = html.html.
+:- func hiddenInput(string, string) = html.html.
+:- func pre(string) = html.html.
+:- func pre(string, list.list(html.attribute)) = html.html.
+:- func render(html.html) = string.
+:- func script(string) = html.html.

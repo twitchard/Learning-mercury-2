@@ -1,0 +1,5 @@
+:- module cgi.
+:- interface.
+:- type request
+    --->    request((cgi.verb) :: string, (cgi.url) :: string, (cgi.body) :: string).
+:- type response.

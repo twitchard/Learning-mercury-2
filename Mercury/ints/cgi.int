@@ -1,0 +1,10 @@
+:- module cgi.
+:- interface.
+:- use_module io.
+:- type request
+    --->    request((cgi.verb) :: string, (cgi.url) :: string, (cgi.body) :: string).
+:- type response.
+:- func error_resp(string) = cgi.response.
+:- pred process(pred(cgi.request, cgi.response, io.io, io.io), io.io, io.io).
+:- mode process(builtin.in((pred((builtin.in), (builtin.out), (builtin.di), (builtin.uo)) is det)), (builtin.di), (builtin.uo)) is det.
+:- func success_resp(string) = cgi.response.

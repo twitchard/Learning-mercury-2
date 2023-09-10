@@ -1,0 +1,171 @@
+/*
+** Automatically generated from `html.m'
+** by the Mercury compiler,
+** version 22.01.3
+** configured for x86_64-pc-linux-gnu.
+** Do not edit.
+**
+** The autoconfigured grade settings governing
+** the generation of this C file were
+**
+** TAG_BITS=3
+** UNBOXED_FLOAT=yes
+** UNBOXED_INT64S=yes
+** PREGENERATED_DIST=no
+** HIGHLEVEL_CODE=yes
+**
+** END_OF_C_GRADE_INFO
+*/
+
+
+// :- module html.
+// :- interface.
+
+#ifndef MR_HEADER_GUARD_html
+#define MR_HEADER_GUARD_html
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#include "mercury.h"
+
+
+#ifndef HTML_DECL_GUARD
+#define HTML_DECL_GUARD
+
+#endif
+
+
+
+
+extern const MR_TypeCtorInfo_Struct html__html__type_ctor_info_attribute_0;
+
+extern const MR_TypeCtorInfo_Struct html__html__type_ctor_info_html_0;
+
+extern const MR_TypeCtorInfo_Struct html__html__type_ctor_info_is_void_0;
+
+extern const MR_TypeCtorInfo_Struct html__html__type_ctor_info_tag_0;
+
+MR_Word MR_CALL 
+html__a_2_f_0(
+  MR_String param_1,
+  MR_String param_2);
+
+MR_Word MR_CALL 
+html__a_3_f_0(
+  MR_String param_1,
+  MR_String param_2,
+  MR_Word param_3);
+
+MR_Word MR_CALL 
+html__button_1_f_0(
+  MR_String param_1);
+
+MR_Word MR_CALL 
+html__button_2_f_0(
+  MR_String param_1,
+  MR_Word param_2);
+
+MR_Word MR_CALL 
+html__form_3_f_0(
+  MR_String param_1,
+  MR_Word param_2,
+  MR_Word param_3);
+
+MR_Word MR_CALL 
+html__h1_1_f_0(
+  MR_String param_1);
+
+MR_Word MR_CALL 
+html__h1_2_f_0(
+  MR_String param_1,
+  MR_Word param_2);
+
+MR_Word MR_CALL 
+html__h2_1_f_0(
+  MR_String param_1);
+
+MR_Word MR_CALL 
+html__h2_2_f_0(
+  MR_String param_1,
+  MR_Word param_2);
+
+MR_Word MR_CALL 
+html__hiddenInput_2_f_0(
+  MR_String param_1,
+  MR_String param_2);
+
+MR_Word MR_CALL 
+html__pre_1_f_0(
+  MR_String param_1);
+
+MR_Word MR_CALL 
+html__pre_2_f_0(
+  MR_String param_1,
+  MR_Word param_2);
+
+MR_String MR_CALL 
+html__render_1_f_0(
+  MR_Word param_1);
+
+MR_Word MR_CALL 
+html__script_1_f_0(
+  MR_String param_1);
+
+void MR_CALL 
+html____Compare____attribute_0_0(
+  MR_Word * param_1,
+  MR_Word param_2,
+  MR_Word param_3);
+
+void MR_CALL 
+html____Compare____html_0_0(
+  MR_Word * param_1,
+  MR_Word param_2,
+  MR_Word param_3);
+
+void MR_CALL 
+html____Compare____is_void_0_0(
+  MR_Word * param_1,
+  MR_Word param_2,
+  MR_Word param_3);
+
+void MR_CALL 
+html____Compare____tag_0_0(
+  MR_Word * param_1,
+  MR_String param_2,
+  MR_String param_3);
+
+MR_bool MR_CALL 
+html____Unify____attribute_0_0(
+  MR_Word param_1,
+  MR_Word param_2);
+
+MR_bool MR_CALL 
+html____Unify____html_0_0(
+  MR_Word param_1,
+  MR_Word param_2);
+
+MR_bool MR_CALL 
+html____Unify____is_void_0_0(
+  MR_Word param_1,
+  MR_Word param_2);
+
+MR_bool MR_CALL 
+html____Unify____tag_0_0(
+  MR_String param_1,
+  MR_String param_2);
+
+void mercury__html__init(void);
+void mercury__html__init_type_tables(void);
+void mercury__html__init_debugger(void);
+const char *mercury__html__grade_check(void);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // MR_HEADER_GUARD_html
+
+// :- end_interface html.

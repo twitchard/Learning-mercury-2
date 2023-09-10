@@ -1,0 +1,5 @@
+count == 0;
+increment();
+count == 1;
+decrement();
+count == 0;
