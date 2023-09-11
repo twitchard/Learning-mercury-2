@@ -1,7 +1,6 @@
 :- module yoox.
 :- interface.
 :- import_module list.
-:- import_module parsing_utils.
 :- type program ---> program(list(statement)).
 :- type statement --->
       equality(identifier, value) ;
@@ -11,10 +10,18 @@
       identifier_value(identifier).
 :- type identifier == string.
 
-:- pred parse_program(src::in, program::out, ps::in, ps::out) is semidet.
+:- import_module parsing_utils.
+:- pred parse(string::in, parse_result(program)::out) is cc_multi.
 :- implementation.
 
+
+parse(In,Out) :-  
+  parsing_utils.parse(In, parse_program, Out).
+  
+
+:- pred parse_program(src::in, program::out, ps::in, ps::out) is semidet.
 parse_program(Src, Out, !PS) :- 
+  whitespace(Src, _, !PS),
   one_or_more(parse_statement, Src, List, !PS),
   Out = program(List).
   
