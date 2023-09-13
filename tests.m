@@ -20,6 +20,7 @@ count == 0;".
 
 serialized = "ok(program([equality(\"count\", int_value(0)), action(\"increment\", []), equality(\"count\", int_value(1)), action(\"decrement\", []), equality(\"count\", int_value(0))]))".
 
+:- import_module string.
 :- use_module yoox.
 
 :- pred test_yoox_serialization(io::di, io::uo) is nondet.

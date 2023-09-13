@@ -1,6 +1,17 @@
+% vim: ft=mercury
+
 :- module yoox.
 :- interface.
 :- import_module list.
+
+:- type program.
+:- type app.
+
+:- import_module parsing_utils.
+:- pred parse(string::in, parse_result(program)::out) is cc_multi.
+:- implementation.
+
+%%% PROGRAM %%%
 :- type program ---> program(list(statement)).
 :- type statement --->
       equality(identifier, value) ;
@@ -10,9 +21,16 @@
       identifier_value(identifier).
 :- type identifier == string.
 
-:- import_module parsing_utils.
-:- pred parse(string::in, parse_result(program)::out) is cc_multi.
-:- implementation.
+%%% APP %%%
+:- type app ---> app(list(element)).
+
+:- type element --->
+    datum(string)
+  ; action(string).
+
+
+
+func compile_element(datum
 
 
 parse(In,Out) :-  
