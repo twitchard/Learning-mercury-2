@@ -1,20 +1,28 @@
+
 :- module yoox.
 :- interface.
 :- import_module list.
 :- import_module parsing_utils.
-:- type program ---> program(list(statement)).
-:- type statement --->
-      equality(identifier, value) ;
-      action(identifier, list(value)).
-:- type value --->
-      int_value(int) ;
-      identifier_value(identifier).
-:- type identifier == string.
+
+%%% APP %%%
+:- type app ---> app(list(element)).
+
+:- type element --->
+    datum(string)
+  ; action(string).
+
+
+
+func compile_element(datum
+
+
+parse(In,Out) :-  
+  parsing_utils.parse(In, parse_program, Out).
+  
 
 :- pred parse_program(src::in, program::out, ps::in, ps::out) is semidet.
-:- implementation.
-
 parse_program(Src, Out, !PS) :- 
+  whitespace(Src, _, !PS),
   one_or_more(parse_statement, Src, List, !PS),
   Out = program(List).
   

@@ -2,3 +2,4 @@ Mercury
 *.mh
 *.err
 helloworld
+tests
