@@ -7,7 +7,7 @@ function helloworld {
 }
 
 function tests {
-  mmc --use-subdirs --make tests && ./tests
+  mmc --use-subdirs --make tests -E && ./tests
 }
 
 function helloworld-web {
