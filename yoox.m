@@ -4,6 +4,7 @@
 :- import_module list.
 :- import_module parsing_utils.
 
+
 %%% APP %%%
 :- type app ---> app(list(element)).
 
@@ -13,14 +14,13 @@
 
 
 
-func compile_element(datum
+% func compile_element(datum
 
 
 parse(In,Out) :-  
   parsing_utils.parse(In, parse_program, Out).
   
 
-:- pred parse_program(src::in, program::out, ps::in, ps::out) is semidet.
 parse_program(Src, Out, !PS) :- 
   whitespace(Src, _, !PS),
   one_or_more(parse_statement, Src, List, !PS),

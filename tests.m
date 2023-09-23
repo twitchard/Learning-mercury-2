@@ -3,29 +3,35 @@
 :- import_module io.
 :- pred main(io::di, io::uo) is det.
 :- implementation.
-:- import_module string.
 :- import_module maybe.
 
-%%% Test yoox serialization
-:- func counter = string.
-counter = "
+
+:- import_module string.
+:- import_module list.
+:- import_module solutions.
+:- import_module exception.
+:- use_module yoox.
+
+:- type testFailure == string.
+
+:- pred assert_parses_to(string::in, string::in, testFailure::out) is semidet.
+assert_parses_to(Input, Expected, Failure) :-
+  promise_equivalent_solutions [Parsed] yoox.parse(Input, Parsed),
+  Actual = string.string(Parsed),
+  ( if Expected = Actual
+    then fail
+    else Failure = Actual ++ "should have been" ++ Expected
+  ).
+
+:- pred tests(testFailure::out) is nondet.
+tests(F) :- assert_parses_to("
 count == 0;
 increment();
 count == 1;
 decrement();
-count == 0;".
-
-:- func serialized = string. 
-
-serialized = "ok(program([equality(\"count\", int_value(0)), action(\"increment\", []), equality(\"count\", int_value(1)), action(\"decrement\", []), equality(\"count\", int_value(0))]))".
-
-:- import_module string.
-:- use_module yoox.
-
-:- pred test_yoox_serialization(io::di, io::uo) is nondet.
-test_yoox_serialization(!IO) :-
-  yoox.parse(counter, Parsed),
-  serialized = string.string(Parsed).
+count == 0;","ok(program([equality(\"count\", int_value(0)), action(\"increment\", []), equality(\"count\", int_value(1)), action(\"decrement\", []), equality(\"count\", int_value(0))]))", F).
 
 main(!IO) :-
-  pred_to_maybe(test_yoox_serialization)(!IO).
+  Failures = solutions(tests),
+  (Failures = [] -> io.write_string("Success!\n", !IO);
+  io.write_string("Failure!\n" ++ join_list("\n", Failures), !IO)).
