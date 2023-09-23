@@ -1,5 +1,4 @@
-# run = "mmc --use-subdirs --make --high-level-code helloworld && httpd -f /home/runner/Learning-mercury/httpd/conf/httpd.conf -DFOREGROUND"
-run = "mmc --use-subdirs --make tests && ./tests && mmc --use-subdirs --make helloworld && ./helloworld"
+run = "./run.sh helloworld"
 entrypoint = "helloworld.m"
 [nix]
 channel = "stable-22_11"
