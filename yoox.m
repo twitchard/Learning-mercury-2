@@ -16,6 +16,8 @@
 
 % func compile_element(datum
 
+:- implementation.
+
 
 parse(In,Out) :-  
   parsing_utils.parse(In, parse_program, Out).

@@ -1,24 +1,24 @@
-function helloworld-build {
+function helloworld_build {
 	mmc --use-subdirs --make helloworld
 }
 
 function helloworld {
-	helloworld-build && ./helloworld
+	helloworld_build && ./helloworld
 }
 
 function tests {
   mmc --use-subdirs --make tests -E && ./tests
 }
 
-function helloworld-web {
-  helloworld-build && httpd -f $(pwd)/httpd/conf/httpd.conf -DFOREGROUND
+function helloworld_web {
+  helloworld_build && httpd -f $(pwd)/httpd/conf/httpd.conf -DFOREGROUND
 }
 
 
 function main {
   case $1 in
     helloworld) helloworld;;
-    helloworld-web) helloworld-web;;
+    helloworld_web) helloworld_web;;
     tests) tests;;
     *) helloworld;;
   esac
