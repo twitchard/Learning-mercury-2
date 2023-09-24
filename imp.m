@@ -9,7 +9,6 @@
    ---> print_eff(string).
 :- func eval_program(program) = list(effect) is semidet.
 
-:- implementation.
 :- import_module map.
 :- import_module string.
 :- import_module int.
@@ -27,6 +26,7 @@
       ; assign(string, expr)
       .
 
+:- implementation.
 
 :- func initial_state = state is det.
 initial_state = map.init.
@@ -77,7 +77,7 @@ my_program =
   , assign("X", int_expr(6))
   , print(plus_expr(var_expr("X"), var_expr("Y")))
   , print(plus_expr(var_expr("X"), var_expr("Y")))
-].
+  ].
 % main(!IO) :-
 %   ( if Evaled = eval_program(my_program) then io.write_line(Evaled, !IO) else io.write_line("Failed", !IO) ).
 
