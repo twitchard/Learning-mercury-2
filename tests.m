@@ -11,6 +11,7 @@
 :- import_module solutions.
 :- import_module exception.
 :- use_module yoox.
+:- use_module imp.
 
 :- type testFailure == string.
 
@@ -22,6 +23,20 @@ assert_parses_to(Input, Expected, Failure) :-
     then fail
     else Failure = Actual ++ "should have been" ++ Expected
   ).
+
+:- func assert_eval_outputs(imp.program, string) = testFailure is nondet.
+assert_eval_outputs(Program, Expected) = Failure :-
+  Effects = imp.eval_program(Program),
+  FoldWith = (func(Cur, Acc) = Out is det :-
+    S = imp.print_eff(Cur),
+    Out = Acc ++ S
+  ),
+  Output = foldl(FoldWith, Effects, ""),
+  ( if Output = Expected
+    then fail
+    else Failure = Output ++ " should have been " ++ Expected
+  ).
+
 
 :- pred tests(testFailure::out) is nondet.
 tests(F) :- assert_parses_to("
